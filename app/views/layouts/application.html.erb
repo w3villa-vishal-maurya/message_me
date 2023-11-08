@@ -20,9 +20,12 @@
     </style>
   </head>
   <body>
-   <div class="container">
-     <%= render partial: "layouts/nav"%>
-   </div>
-    <%= yield %>
+    <div class="container fixed-nav">
+      <%= render partial: "layouts/nav"%>
+    </div>
+    <div class="container div-ele">
+      <%= render partial: "shared/flash"%>
+      <%= yield %>
+    </div>
   </body>
 </html>

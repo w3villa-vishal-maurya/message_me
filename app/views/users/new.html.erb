@@ -1,0 +1,12 @@
+<%= form_with model: @user, url: users_path, multipart: true, method: :post  do |form| %>
+  
+  <div class="mb-3">
+    <br/>
+    <%= form.label "Username"%>
+    <%= form.text_field :username, class: "form-control", placeholder: "username"%>
+    <br/>
+  </div> 
+  <div class="mb-3">
+    <%= form.submit "Register", class: "btn btn-primary"%>
+  </div>
+<%end%>

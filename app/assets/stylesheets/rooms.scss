@@ -3,6 +3,11 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
 .msg-form {
     position: fixed;
     bottom: 0;
@@ -40,4 +45,17 @@
 
 .username{
     color: green;
+}
+
+.fixed-nav{
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    z-index: 3;
+    margin-top: 0px !important;
+    background-color: white;
+}
+
+.div-ele{
+    padding-top: 70px;
 }
