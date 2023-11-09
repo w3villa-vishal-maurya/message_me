@@ -1,6 +1,8 @@
-<div class="form-group msg-form col-md-6">
-  <%= form_with(model: [@single_room ,@message], remote: true, class: "d-flex" ) do |f| %>
-    <%= f.text_field :content, id: 'chat-text', class: "form-control msg-content", autocomplete: 'off', required:"required" %>
-    <%= f.submit data: { disable_with: false }, class: "btn btn-primary" %>
+<div class="footer-chat">
+   <i class="icon fa fa-smile-o clickable" style="font-size:25pt;" aria-hidden="true"></i>
+  <%= form_with(model: [@single_room ,@message], remote: true, class: "d-flex full-width" ) do |f| %>
+    <%= f.text_field :content, id: 'chat-text', class: "write-message", id: 'chat-text', autocomplete: 'off',placeholder:"Type your message here"%>
+    <%= f.submit "Send", data: { disable_with: false }, class: "btn btn-primary" %>
   <% end %>
 </div>
+

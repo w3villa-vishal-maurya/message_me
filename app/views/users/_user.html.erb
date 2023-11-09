@@ -1,1 +1,15 @@
-<div> <%= link_to user.username, user %> </div>
+<div class="discussion">
+  <div class="photo" style="background-image: url(https://images.unsplash.com/photo-1497551060073-4c5ab6435f12?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80);">
+  </div>
+  <div class="desc-contact">
+    <p class="name"><%= link_to user.username, user %></p>
+    <p class="message">
+      <% if find_last_message(user, current_user)%>
+        <span>&#10003;</span> <%= find_last_message(user, current_user).content %>
+      <% end %>
+    </p>
+  </div>
+  <% if find_last_message(user, current_user)%>
+    <div class="timer"><%= update_time(find_last_message(user, current_user).updated_at) %></div>
+  <% end %>
+</div>

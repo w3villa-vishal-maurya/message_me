@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      flash[:alert] = "User has been Successfully registered!"
+      flash[:notice] = "User has been Successfully registered!"
       redirect_to signin_path
     else
       flash[:alert] = "User already registered!"
@@ -28,11 +28,11 @@ class UsersController < ApplicationController
     @room_name = get_name(@user, @current_user)
     @single_room = Room.where(name: @room_name).first || Room.create_private_room([@user, @current_user], @room_name)
     @messages = @single_room.messages
-
     render "rooms/index"
   end
 
   private
+
   def get_name(user1, user2)
     users = [user1, user2].sort
     "private_#{users[0].id}_#{users[1].id}"

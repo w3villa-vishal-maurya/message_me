@@ -1,8 +1,12 @@
-<div class="cont-<%= message.user.id %>">
-  <div class="message-box msg-<%= message.user.id %> " >
+<div class="message msg-<%= message.user.id %>">
+  <div class="photo" style="background-image: url(https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);">
+    <div class="online"></div>
+  </div>
+  <div class="message-box text msg-<%= message.user.id %> " >
     <% unless message.room.is_private %>
       <h6 class="name username"> <%= message.user.username %> </h6>
     <% end %>
-  <%= message.content %>
+    <%= message.content %>
   </div>
 </div>
+

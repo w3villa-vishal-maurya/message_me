@@ -1,32 +1,54 @@
-<div class="container mt-4">
-  <div class="row ">
-    <div class="col-md-4">
-      <h1> Hi <%= @current_user.username %> </h1>
-      <h2> Users </h2>
-      <div>
-        <%= turbo_stream_from "users" %>
-        <div id="users">
-          <%= render @users %>
-        </div>
-      </div>
-      <h4> Rooms </h4>
-      <%= render partial: "layouts/new_room_form" %>
-      <div>
-        <%= turbo_stream_from "rooms" %>
-        <div id="rooms">
-          <%= render @rooms %>
-        </div>
+<div class="">
+  <div class="row new-row">
+    <nav class="menu">
+      <ul class="items">
+        <li class="item">
+          <i class="fa fa-home" aria-hidden="true"></i>
+        </li>
+        <li class="item">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        </li>
+        <li class="item">
+          <i class="fa fa-pencil" aria-hidden="true"></i>
+        </li>
+        <li class="item item-active">
+          <i class="fa fa-commenting" aria-hidden="true"></i>
+        </li>
+        <li class="item">
+          <i class="fa-solid fa-users"></i>
+        </li>
+        <li class="item">
+          <i class="fa fa-cog" aria-hidden="true"></i>
+        </li>
+      </ul>
+    </nav>
+    <section class="discussions">
+      <div class="discussion search">
+        <div class="searchbar">
+          <i class="fa fa-search" aria-hidden="true"></i>
+          <input type="text" placeholder="Search..."></input>
       </div>
     </div>
-    <% if @single_room %>
-      <div class="col-md-8 bg-dark">
-        <h4 class="text-center"> <%= @single_room.name %> </h4>
+    <%= render @users %>
+    <%= render @rooms %>
+  </section>
+  <section class="chat">
+    <div class="header-chat">
+      <i class="icon fa fa-user-o" aria-hidden="true"></i>
+      <p class="name"> <%= @user&.username %></p>
+      <i class="icon clickable fa fa-ellipsis-h right" aria-hidden="true"></i>
+    </div>
+    <div class="messages-chat">
+      <% if @single_room %>
         <%= turbo_stream_from @single_room %>
         <div id="messages">
           <%= render @messages %>
         </div>
-        <%= render partial: 'layouts/new_message_form' %>
-      </div>
+      <% end %>
+    </div>
+    <% if @single_room %>
+      <%= render partial: 'layouts/new_message_form' %>
     <% end %>
-  </div>
+  </section>
+</div>
 </div>
